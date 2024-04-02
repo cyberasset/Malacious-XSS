@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Malacious XSS Code</title>
+</head>
+<body>
+
+<h1>Malacious XSS Code</h1>
+
+<form>
+  <label for="code">Enter JavaScript code:</label><br>
+  <input type="text" id="code" name="code"><br>
+  <button type="button" onclick="executeCode()">Execute</button>
+</form>
+
+<script>
+function executeCode() {
+  var code = document.getElementById('code').value;
+  try {
+    // Execute the user-provided code
+    eval(code);
+  } catch (error) {
+    // Handle errors
+    console.error('Error executing code:', error);
+  }
+}
+</script>
+
+</body>
+</html>
